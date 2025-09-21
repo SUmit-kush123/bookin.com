@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="teal-light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookIn - Your Universal Booking Hub</title>
+    <link rel="icon" href="data:image/svg+xml,%3csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3clinearGradient id='newGradBlue' x1='1' y1='0' x2='0' y2='1'%3e%3cstop offset='0%25' stop-color='%2321D4FD'/%3e%3cstop offset='100%25' stop-color='%232152FF'/%3e%3c/linearGradient%3e%3clinearGradient id='newGradGreen' x1='0' y1='1' x2='1' y2='0'%3e%3cstop offset='0%25' stop-color='%2398e08a'/%3e%3cstop offset='100%25' stop-color='%2355c57a'/%3e%3c/linearGradient%3e%3c/defs%3e%3cg%3e%3cpath d='M78.4,113.8c-1.3,0-2.6-0.1-3.9-0.4c-11.8-2.6-21-13.6-21-26.3V82.3c6.8,4.2,14.6,6.6,22.9,6.6 c20.1,0,36.5-16.3,36.5-36.4c0-20.1-16.3-36.4-36.5-36.4c-8.7,0-16.8,3-23.4,8.2V24.8c0-12.2,8.9-22.6,20.5-25.6 c1.6-0.4,3.2-0.6,4.8-0.6c20.1,0,36.4,16.3,36.4,36.4C114.8,97.5,98.5,113.8,78.4,113.8z' fill='%230052D4'/%3e%3cpath d='M96.7,35.2c-15.8-12.7-38.5-9-49.8,7.9c-4.9,7.3-6.6,16.2-5,24.6c1.3,7,4.8,13.2,9.9,17.7 c-2.4-1.2-4.6-2.6-6.6-4.3c-11.4-9.3-15.1-25.5-8.1-38.9C43.9,29.9,59,22,74.5,24.8C86.7,27,96.6,35.8,99.6,47.7 c0.9,3.6,1,7.3,0.3,10.9c-0.1,0.5-0.2,0.9-0.4,1.4c-2.3-19.1-12.8-32.3-25.8-38.3C70.6,19.9,67,19,63.3,19 c-1.3,0-2.6,0.1-3.8,0.4c1.6-0.2,3.3-0.4,4.9-0.4c8.7,0,16.8,3,23.4,8.2c2.1,1.7,4,3.6,5.6,5.8C95,34.2,95.9,34.7,96.7,35.2z' fill='url(%23newGradBlue)'/%3e%3cpath d='M30.6,87.1c2.1,1.7,4.3,3.1,6.6,4.3c-5.1,4.5-8.5,10.7-9.9,17.7c-1.6,8.4,0.2,17.3,5,24.6 c11.3,16.8,34,20.6,49.8,7.9c3.9-3.2,7-7,9.2-11.3c0.1-0.3,0.3-0.6,0.4-0.9c-3-11.9-12.9-20.7-25.1-22.9 c-11.6-2.1-23,2.6-29.8,11.3c-2.2,2.7-3.9,5.8-5,9.1C31.5,119.5,30.6,103.3,42,94c3.1-2.5,6.6-4.5,10.3-5.8 c-7.7-2-15.8-0.8-22.1,3.3C26.1,93.9,24,98.6,24,103.8c0,1.3,0.1,2.6,0.4,3.9c0.2-2.1,0.6-4.1,1.2-6.1 C26.7,97.2,28.3,91.8,30.6,87.1z' fill='url(%23newGradGreen)'/%3e%3cpath d='M54.5,76.5l14.8-11.3l14.8,11.3l-14.8,11.3L54.5,76.5z' fill='%23003973'/%3e%3c/g%3e%3c/svg%3e" />
+    
+    <script>
+      // Flicker-prevention script for theme
+      (function() {
+        try {
+          var theme = localStorage.getItem('bookin_theme_v2');
+          if (theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+          }
+        } catch (e) {
+            console.error('Theme script error:', e);
+        }
+      })();
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class', // Maintained for some legacy dark: prefixes, but new themeing is data-attribute based.
+        theme: {
+          extend: {
+            colors: {
+              // These colors are now dynamic based on CSS variables
+              primary: {
+                DEFAULT: 'hsl(var(--color-primary-DEFAULT))',
+                light: 'hsl(var(--color-primary-light))',
+                dark: 'hsl(var(--color-primary-dark))',
+                extralight: 'hsl(var(--color-primary-extralight))',
+              },
+              secondary: {
+                DEFAULT: 'hsl(var(--color-secondary-DEFAULT))',
+                dark: 'hsl(var(--color-secondary-dark))',
+                extralight: 'hsl(var(--color-secondary-extralight))',
+              },
+              accent: {
+                DEFAULT: 'hsl(var(--color-accent-DEFAULT))',
+                dark: 'hsl(var(--color-accent-dark))',
+                light: 'hsl(var(--color-accent-light))'
+              },
+              success: { DEFAULT: '#10b981', light: '#34d399' },
+              danger: { DEFAULT: '#ef4444', light: '#f87171' },
+              neutral: {
+                light: 'hsl(var(--color-bg-DEFAULT))',
+                DEFAULT: 'hsl(var(--color-text-DEFAULT))',
+                dark: 'hsl(var(--color-text-strong))',
+                extralight: 'hsl(var(--color-border))',
+                'd-light': 'hsl(var(--color-bg-DEFAULT))',
+                'd-DEFAULT': 'hsl(var(--color-text-DEFAULT))',
+                'd-dark': 'hsl(var(--color-text-strong))',
+                'd-extralight': 'hsl(var(--color-border))',
+              }
+            },
+            fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+            boxShadow: {
+              'interactive': '0 0 15px -3px hsla(var(--color-primary-DEFAULT), 0.2), 0 0 6px -4px hsla(var(--color-primary-DEFAULT), 0.1)',
+              'card-hover': '0 10px 20px -5px rgba(0, 0, 0, 0.07), 0 4px 8px -6px rgba(0, 0, 0, 0.05)',
+              'input': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+              'input-focus': '0 0 0 3px hsla(var(--color-accent-DEFAULT), 0.3)',
+              'dark-interactive': '0 0 15px -3px hsla(var(--color-accent-DEFAULT), 0.15), 0 0 6px -4px hsla(var(--color-accent-DEFAULT), 0.1)',
+            },
+            backgroundImage: {
+              'gradient-primary-accent': 'linear-gradient(to right, hsl(var(--color-primary-DEFAULT)), hsl(var(--color-accent-DEFAULT)))',
+            }
+          },
+        },
+        plugins: [
+          function({ addUtilities, theme }) {
+            const newUtilities = {
+              '.custom-scrollbar::-webkit-scrollbar': { width: '10px', height: '10px' },
+              '.custom-scrollbar::-webkit-scrollbar-track': { background: 'transparent' },
+              '.custom-scrollbar::-webkit-scrollbar-thumb': { background: 'hsl(var(--color-border))', borderRadius: '20px', border: '2px solid transparent', backgroundClip: 'content-box' },
+              '.custom-scrollbar::-webkit-scrollbar-thumb:hover': { background: 'hsl(var(--color-text-DEFAULT))' },
+              '.no-scrollbar::-webkit-scrollbar': { display: 'none' },
+              '.no-scrollbar': { '-ms-overflow-style': 'none', 'scrollbar-width': 'none' },
+              '.text-gradient-primary-accent': { '@apply bg-gradient-primary-accent bg-clip-text text-transparent': {} },
+            }
+            addUtilities(newUtilities, ['responsive', 'hover'])
+          }
+        ]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0?external=react-dom",
+    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime?external=react-dom",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.25.1?external=react,react-dom",
+    "leaflet": "https://esm.sh/leaflet@1.9.4",
+    "@react-leaflet/core": "https://esm.sh/@react-leaflet/core@2.1.0?external=react,leaflet",
+    "react-leaflet": "https://esm.sh/react-leaflet@4.2.1?external=react,react-dom,@react-leaflet/core,leaflet",
+    "@google/genai": "https://esm.sh/@google/genai@^1.9.0",
+    "three": "https://esm.sh/three@0.166.1",
+    "@react-three/fiber": "https://esm.sh/@react-three/fiber@8.16.8?external=react,three",
+    "@react-three/drei": "https://esm.sh/@react-three/drei@9.108.3?external=react,three,@react-three/fiber",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/"
+  }
+}
+</script>
+<style>
+  :root[data-theme="teal-light"] {
+    --color-primary-DEFAULT: 172 65% 35%; --color-primary-light: 173 80% 27%; --color-primary-dark: 173 80% 21%; --color-primary-extralight: 174 81% 94%;
+    --color-secondary-DEFAULT: 215 14% 93%; --color-secondary-dark: 210 14% 83%; --color-secondary-extralight: 220 13% 91%;
+    --color-accent-DEFAULT: 38 92% 50%; --color-accent-dark: 35 92% 42%; --color-accent-light: 41 94% 52%;
+    --color-bg-DEFAULT: 210 20% 98%; --color-text-DEFAULT: 215 16% 47%; --color-text-strong: 221 39% 11%; --color-border: 215 28% 85%;
+  }
+  :root[data-theme="teal-dark"] {
+    --color-primary-DEFAULT: 172 65% 45%; --color-primary-light: 172 65% 55%; --color-primary-dark: 172 65% 35%; --color-primary-extralight: 173 80% 21%;
+    --color-secondary-DEFAULT: 221 39% 11%; --color-secondary-dark: 215 28% 85%; --color-secondary-extralight: 217 33% 17%;
+    --color-accent-DEFAULT: 41 94% 62%; --color-accent-dark: 38 92% 50%; --color-accent-light: 41 94% 72%;
+    --color-bg-DEFAULT: 222 47% 11%; --color-text-DEFAULT: 220 14% 65%; --color-text-strong: 210 40% 96%; --color-border: 217 27% 27%;
+  }
+  :root[data-theme="indigo-light"] {
+    --color-primary-DEFAULT: 226 76% 51%; --color-primary-light: 226 76% 56%; --color-primary-dark: 226 76% 46%; --color-primary-extralight: 226 97% 94%;
+    --color-accent-DEFAULT: 330 81% 60%; --color-accent-dark: 330 81% 55%; --color-accent-light: 330 81% 65%;
+    /* re-using teal-light's neutral colors */
+    --color-secondary-DEFAULT: 215 14% 93%; --color-secondary-dark: 210 14% 83%; --color-secondary-extralight: 220 13% 91%;
+    --color-bg-DEFAULT: 210 20% 98%; --color-text-DEFAULT: 215 16% 47%; --color-text-strong: 221 39% 11%; --color-border: 215 28% 85%;
+  }
+  :root[data-theme="indigo-dark"] {
+    --color-primary-DEFAULT: 226 76% 61%; --color-primary-light: 226 76% 71%; --color-primary-dark: 226 76% 51%; --color-primary-extralight: 226 76% 21%;
+    --color-accent-DEFAULT: 330 81% 70%; --color-accent-dark: 330 81% 60%; --color-accent-light: 330 81% 80%;
+     /* re-using teal-dark's neutral colors */
+    --color-secondary-DEFAULT: 221 39% 11%; --color-secondary-dark: 215 28% 85%; --color-secondary-extralight: 217 33% 17%;
+    --color-bg-DEFAULT: 222 47% 11%; --color-text-DEFAULT: 220 14% 65%; --color-text-strong: 210 40% 96%; --color-border: 217 27% 27%;
+  }
+  body {
+    background-color: hsl(var(--color-bg-DEFAULT));
+    color: hsl(var(--color-text-DEFAULT));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  *:focus-visible {
+    outline: 2px solid hsl(var(--color-accent-DEFAULT));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  .prose { color: hsl(var(--color-text-strong)); }
+  .prose strong { color: hsl(var(--color-text-strong)); }
+  .prose a { color: hsl(var(--color-primary-DEFAULT)); }
+  .prose a:hover { color: hsl(var(--color-primary-dark)); }
+
+  /* Wishlist button pop animation */
+  .wishlist-pop {
+    animation: pop-animation 0.3s ease-out;
+  }
+  @keyframes pop-animation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+    100% { transform: scale(1); }
+  }
+</style>
+</head>
+  <body class="font-sans antialiased custom-scrollbar">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

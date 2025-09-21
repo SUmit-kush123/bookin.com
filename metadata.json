@@ -1,0 +1,8 @@
+{
+  "name": "BookIn: Your Universal Booking Hub",
+  "description": "Bookin is a modern, user-friendly platform for all your booking needs, from hotels and flights to unique adventures and event spaces. Discover, book, and manage your reservations seamlessly.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "prompt": ""
+}
